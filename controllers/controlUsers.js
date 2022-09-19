@@ -1,5 +1,7 @@
+const bcrypt = require('bcrypt');
 let Users = require("../models/model");
 
+const saltRounds = 10;
 
 const postUser = (req, res) => {
     
@@ -19,9 +21,14 @@ const postUser = (req, res) => {
         postBlog
     });
 
-    newUsers.save()
-    .then(() => res.json('User added'))
-    .catch(err => res.status(400).json('Error' +err))
+    bcrypt.hash(password, saltRounds, function(err, hash) {
+        if(err) throw err;
+        newUsers.password = hash;
+        newUsers.save()
+        .then(() => res.json('User added'))
+        .catch(err => res.status(400).json('Error' +err))
+    }); 
+  
 };
 
 const getAllUser = (req, res) => {
