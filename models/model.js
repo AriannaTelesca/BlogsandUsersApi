@@ -1,6 +1,6 @@
 require('dotenv').config();
 const mongoose = require("mongoose");
-const mongoDB = process.env.DBurl;
+const mongoDB = process.env.DATABASE_URL;
 
 const quoteDB = mongoose.createConnection(mongoDB);
 
