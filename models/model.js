@@ -19,12 +19,6 @@ const Users = quoteDB.model(
     password : {
         type : String
     },
-    confirmPwd : {
-        type : String
-    },
-    postBlog : {
-        type : String
-    }
 }, {collection: 'users'})
 );
 
