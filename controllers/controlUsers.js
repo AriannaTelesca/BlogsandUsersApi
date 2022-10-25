@@ -43,8 +43,15 @@ const getUser = (req, res) => {
     .catch(err => res.status(400).json('Error'+err))
 };
 
+const deleteUser = (req, res) => {
+    Users.findByIdAndDelete({_id : req.params._id})
+    .then(() => res.json('User deleted'))
+    .catch(err => res.status(400).json('Error' +err))
+}
+
 module.exports = {
     getAllUser,
     postUser,
-    getUser
+    getUser,
+    deleteUser
 }

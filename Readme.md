@@ -5,7 +5,7 @@
 GetAll routes:  
 
 - /getAllUsers
-- /getAllComment
+- /getAllComments
 - /getAllBlogs  
 
 to see others routes -> routes/routes.js
